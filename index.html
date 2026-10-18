@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chinese Dress Through Time</title>
+  <link rel="stylesheet" href="index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <!-- HERO -->
+  <header id="hero">
+    <h1>Chinese Dress Through Time</h1>
+    <p> Follow four dynasties of clothing and see how politics, trade and conquest reshaped what people wore.</p>
+    <a href="#timeline">Start scrolling</a>
+  </header>
+
+  <!-- TIMELINE (scrollytelling section) -->
+  <main id="timeline">
+<div id="pin">
+      <!-- Sticky panel: illustration swaps when the active era changes -->
+    <aside id="stage" aria-live="polite">
+      <figure id="photo">
+        <!-- JS updates src, alt, caption and credit when the active era changes -->
+       <div id="era-image-container">
+          <img id="era-image" src="" alt="">
+          <p id="hotspot-note"></p>
+        </div>
+        <figcaption>
+          <span id="stage-credit"></span>
+        </figcaption>
+      </figure>
+    </aside>
+
+    <!-- Scrolling text: JS builds one section per era from the data array -->
+    <div id="eras">
+    <div id="era-nav">
+      <button id="prev-era" aria-label="Previous era">←</button>
+      <nav id="era-dots" aria-label="Eras"></nav>
+      <button id="next-era" aria-label="Next era">→</button>
+    </div>
+</div>
+    </div>
+
+  </main>
+<div id="end">
+  <!-- CROSS-CULTURAL NOTE (uses the supplied Tokyo Weekender source) -->
+  <section id="japan">
+    <h2>Tang China and Japan</h2>
+    <p>
+      Tang culture reached well beyond China. Pilgrims such as Ennin travelled from
+      Japan in 838, and Japan adopted parts of the Chinese writing system, political
+      structure and Confucian values. The Heian period (794&ndash;1192) began while
+      the Tang was still in power. During it, Japan's most iconic garment, the
+      kimono, was introduced, and women of the Imperial Court sometimes wore the
+      junihitoe, an ensemble of 12 or more layers weighing up to 20 kg. Japan
+      looked abroad for fashion again after the Meiji Restoration of 1868, when
+      government officials and their wives were required to wear Western-style
+      dress at work and on formal occasions.
+    </p>
+  </section>
+
+  <!-- CLOSING NOTE -->
+  <section id="after">
+    <h2>What came next</h2>
+    <p>
+      The Qing dress code, which marked rank, was strictly followed until the
+      government was overthrown in 1911. By the 1920s, Chinese elements had become
+      very popular in the West and reached a peak. The qipao, also called the
+      cheongsam, appeared in a more modern, fitted shape that a Chinese or Western
+      woman could wear, and Chinese textiles and embroidery were used in
+      Western-cut dresses. The same exchange was happening in Japan, where the
+      West and the East began to share trends and, by the end of the 1920s,
+      popular women's fashion had become similar across the globe, favouring a
+      glamorous slim line.
+    </p>
+  </section>
+
+  <!-- SOURCES -->
+  <footer id="sources">
+    <h2>Sources and credits</h2>
+
+    <!-- Both lists sit inside one div, so the footer grid stays at two columns (heading | content).
+         References are in APA 7 style, alphabetical by author. -->
+    <div>
+      <h3>References:</h3>
+      <ul>
+
+        <li>
+          Bissoux, B. (2021, April 21). Japanese fashion through the eras: From Heian to Heisei. <em>Tokyo Weekender</em>.
+          <a href="https://www.tokyoweekender.com/art_and_culture/japanese-fashion-eras-heian-heisei/">https://www.tokyoweekender.com/art_and_culture/japanese-fashion-eras-heian-heisei/</a>
+        </li>
+        <li>
+          Clydesdale, H. C. (2009, April 1). <em>Internationalism in the Tang dynasty (618&ndash;907)</em>. Heilbrunn Timeline of Art History, The Metropolitan Museum of Art.
+          <a href="https://www.metmuseum.org/essays/internationalism-in-the-tang-dynasty-618-906">https://www.metmuseum.org/essays/internationalism-in-the-tang-dynasty-618-906</a>
+        </li>
+        <li>
+          Cornell University Library. (n.d.-a). <em>Eastern and Western intersection of influence</em>. In <em>Chinese traditional dress</em> [Online exhibit].
+          <a href="https://exhibits.library.cornell.edu/chinese-traditional-dress/feature/eastern-and-western-intersection-of-influence">https://exhibits.library.cornell.edu/chinese-traditional-dress/feature/eastern-and-western-intersection-of-influence</a>
+        </li>
+        <li>
+          Cornell University Library. (n.d.-b). <em>Manchu style</em>. In <em>Chinese traditional dress</em> [Online exhibit].
+          <a href="https://exhibits.library.cornell.edu/chinese-traditional-dress/feature/manchu-style">https://exhibits.library.cornell.edu/chinese-traditional-dress/feature/manchu-style</a>
+        </li>
+        <li>
+          Department of Asian Art. (2000, October 1). <em>Han dynasty (206 B.C.&ndash;220 A.D.)</em>. Heilbrunn Timeline of Art History, The Metropolitan Museum of Art.
+          <a href="https://www.metmuseum.org/essays/han-dynasty-206-b-c-220-a-d">https://www.metmuseum.org/essays/han-dynasty-206-b-c-220-a-d</a>
+        </li>
+        <li>
+          Department of Asian Art. (2002, October 1). <em>Ming dynasty (1368&ndash;1644)</em>. Heilbrunn Timeline of Art History, The Metropolitan Museum of Art.
+          <a href="https://www.metmuseum.org/essays/ming-dynasty-1368-1644">https://www.metmuseum.org/essays/ming-dynasty-1368-1644</a>
+        </li>
+        <li>
+          Quilliam, M. (2026, February 18). <em>Reigning it in: A brief look at horse hoof cuffs</em>. University of Alberta Museums.
+          <a href="https://www.ualberta.ca/en/museums/news/2026/february/reigning-it-in.html">https://www.ualberta.ca/en/museums/news/2026/february/reigning-it-in.html</a>
+        </li>
+      </ul>
+
+      <h3>Image credits:</h3>
+      <p>Photographs: The Metropolitan Museum of Art, Open Access (public domain).</p>
+      <ul>
+        <li>
+          <em>Standing court lady</em> [Earthenware sculpture]. (2nd century BCE). The Metropolitan Museum of Art, New York, NY, United States.
+          <a href="https://www.metmuseum.org/art/collection/search/49902">https://www.metmuseum.org/art/collection/search/49902</a>
+        </li>
+        <li>
+          <em>Standing court lady</em> [Earthenware sculpture]. (Late 7th century). The Metropolitan Museum of Art, New York, NY, United States.
+          <a href="https://www.metmuseum.org/art/collection/search/42374">https://www.metmuseum.org/art/collection/search/42374</a>
+        </li>
+        <li>
+          <em>Figure of an immortal lady</em> [Porcelain sculpture]. (16th century). The Metropolitan Museum of Art, New York, NY, United States.
+          <a href="https://www.metmuseum.org/art/collection/search/48673">https://www.metmuseum.org/art/collection/search/48673</a>
+        </li>
+        <li>
+          <em>Figure of a man</em> [Porcelain sculpture]. (Late 18th century). The Metropolitan Museum of Art, New York, NY, United States.
+          <a href="https://www.metmuseum.org/art/collection/search/48568">https://www.metmuseum.org/art/collection/search/48568</a>
+        </li>
+      </ul>
+
+      <h3>Typefaces:</h3>
+      <p>Playfair Display and Inter, via Google Fonts (SIL Open Font License 1.1). https://fonts.google.com</p>
+    </div>
+  </footer>
+</div>
+
+  <script src="index.js"></script>
+</body>
+</html>

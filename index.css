@@ -1,0 +1,439 @@
+/* ==========================================================
+   CSS RESET
+   Adapted from "A Modern CSS Reset" by Josh W. Comeau
+   https://www.joshwcomeau.com/css/custom-css-reset/
+   ========================================================== */
+
+/* 1. Use a more intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+/* 3. Add accessible line-height and improve text rendering */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 6. Avoid text overflows *
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 7. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* ==========================================================
+   END RESET
+   ========================================================== */
+
+  h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+#hero {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+   
+#hero h1 {
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 1;
+}
+
+#hero p {
+  margin-top: 2rem;
+  max-width: 40rem;
+  margin-inline: auto;
+  font-size: 1.25rem;
+}
+
+#hero a {
+  display: inline-block;
+  justify-self: center;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#hero a:hover,
+#hero a:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+
+/* The strip of era cards. Flex row + hidden overflow, so updateStrip() slides it sideways with scrollLeft.
+   min-width: 0 lets the grid column stay narrow instead of growing to fit all four cards. */
+#eras {
+  display: flex;
+  overflow-x: hidden;
+  gap: 2rem;
+  position: relative;
+  min-width: 0;
+  height: 80vh;
+}
+
+#era-nav {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: calc(50% - 3rem);
+  justify-content: space-between;
+  align-items: center;
+}
+
+#era-nav.visible {
+  display: flex;
+}
+
+#era-nav button:hover {
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* One screen of scrolling per era (4 eras = 400vh), so each card gets its own share of the scroll */
+#timeline {
+  height: 400vh;
+}
+#pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+#stage {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Sized by screen height (vh) so the image, caption and cards all fit on a laptop screen */
+#era-image {
+  height: 70vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* The figure is exactly as wide as the photo (fit-content). The caption is given width: 0
+   with min-width: 100%, which stops its long text from widening the figure, then stretches it
+   back out to the figure's width, so the credit wraps to the width of the photo. */
+#photo {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+#photo figcaption {
+  width: 0;
+  min-width: 100%;
+}
+
+#stage-credit {
+  display: block;
+  text-align: left;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+body {
+  background-color: var(--bg);
+  transition:
+    background-color 0.6s,
+    color 0.6s;
+
+  color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+
+}
+
+/* Each card fills the whole right column. Flex column centres the text vertically. */
+#eras section {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 2.5rem;
+  color: var(--text);
+  border-top: 4px solid var(--accent);
+  border-radius: 10px;
+  opacity: 0.5;
+  transition:
+    opacity 0.6s,
+    color 0.6s;
+}
+
+#eras section h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+#eras section p {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  line-height: 1.6;
+}
+
+/* The "Signature garment: ..." line, picked out in the era's accent colour.
+   The class is added in buildEras(). */
+#eras .era-signature {
+  color: var(--accent);
+  font-weight: 600;
+}
+#eras section.active {
+  opacity: 1;
+}
+
+h2 {
+  color: var(--accent);
+}
+.dot {
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: none;
+  background: var(--text);
+  opacity: 0.5;
+}
+
+#era-dots button.active {
+  background: var(--accent);
+  opacity: 1;
+}
+#era-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0;
+}
+
+#next-era,
+#prev-era {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#era-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hotspot {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--accent);
+  border: 2px solid var(--text);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.hotspot.active {
+  background-color: var(--text);
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* Popup box next to the clicked dot. JS sets its left/top to the dot's position.
+   Being absolutely positioned means it never changes the size of the photo container,
+   so the dots stay on their features. pointer-events: none lets clicks pass through it. */
+#hotspot-note {
+  position: absolute;
+  width: max-content;
+  max-width: 14rem;
+  margin: 0;
+  padding: 0.75rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: left;
+  z-index: 2;
+  pointer-events: none;
+  transform: translate(1.25rem, -50%);
+}
+
+/* For dots in the right half of the photo, the box opens to the left of the dot instead */
+#hotspot-note.flip {
+  transform: translate(calc(-100% - 1.25rem), -50%);
+}
+
+#hotspot-note:empty {
+  display: none;
+}
+
+/* ==========================================================
+   BOTTOM OF THE PAGE: Japan note, closing note and sources.
+   Each has a heading on the left and text on the right, like the photo and
+   card in the timeline above. Colours come from the same
+   variables as the timeline, so they match the last era shown.
+   ========================================================== */
+/* width: 100% is needed because auto side margins would otherwise shrink these
+   boxes to fit their content inside the flex column of #end. */
+#japan,
+#after,
+#sources {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
+  padding: 3rem 2rem;
+}
+
+/* The two notes: heading on the left, text on the right.
+   flex: 1 shares the spare height of the full-screen wrapper between them,
+   and align-items centres each one vertically in its share. */
+#japan,
+#after {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Same sizes as the era headings and card text in the timeline */
+#japan h2,
+#after h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+#japan p,
+#after p {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  line-height: 1.7;
+}
+
+#after {
+  border-top: 1px solid var(--accent);
+}
+
+/* Sources: the same split, smaller text, set off by a thin accent line */
+#sources {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding-bottom: 5rem;
+  border-top: 1px solid var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+#sources h2 {
+font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+/* References: plain list with an APA-style hanging indent (first line out, the rest indented).
+   Long URLs may wrap anywhere, so they never push the page sideways. */
+#sources ul {
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 0;
+  list-style: none;
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  line-height: 1.6;
+}
+
+#sources li {
+  padding-left: 2rem;
+  text-indent: -2rem;
+  overflow-wrap: anywhere;
+}
+
+#sources h3 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+#sources h3:not(:first-child) {
+  margin-top: 2rem;
+}
+
+#sources p {
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  line-height: 1.6;
+}
+
+#sources a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+/* The whole ending fills at least one screen, and grows if the content needs more. */
+#end {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* On phones, stack the heading above the text */
+@media (max-width: 700px) {
+  #japan,
+  #after,
+  #sources {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
