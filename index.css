@@ -39,7 +39,7 @@ select {
   font: inherit;
 }
 
-/* 6. Avoid text overflows *
+/* 6. Avoid text overflows */
 p,
 h1,
 h2,
@@ -330,8 +330,6 @@ h2 {
    card in the timeline above. Colours come from the same
    variables as the timeline, so they match the last era shown.
    ========================================================== */
-/* width: 100% is needed because auto side margins would otherwise shrink these
-   boxes to fit their content inside the flex column of #end. */
 #japan,
 #after,
 #sources {
@@ -385,8 +383,7 @@ h2 {
 font-size: clamp(2.5rem, 5vw, 5rem);
 }
 
-/* References: plain list with an APA-style hanging indent (first line out, the rest indented).
-   Long URLs may wrap anywhere, so they never push the page sideways. */
+/* References: plain list with an APA-style */
 #sources ul {
   display: grid;
   gap: 0.75rem;
