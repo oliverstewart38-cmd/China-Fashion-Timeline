@@ -120,13 +120,11 @@ One of the more difficult parts of the CSS was the photo credit. As it was quite
 
 ## Problems I ran into
 
-**Changing how the timeline scrolls.** My first version was a sideways strip you scrolled by hand, using `scroll-snap` and `scrollIntoView` to move between eras. When I changed it to a pinned section driven by the normal page scroll, the old navigation fought against the new scroll position, so the buttons and dots stopped lining up. I had to rewrite `goToEra()` to scroll the whole window instead of the strip. I also tried a version where one flick of the mouse wheel moved exactly one card, but I removed it because it took over the mouse wheel and I couldn't fully understand how all of it worked
+**Changing how the timeline scrolls.** My first version was a sideways strip you scrolled by hand, using `scroll-snap` and `scrollIntoView` to move between eras. When I changed it to a pinned section driven by the normal page scroll, the old navigation fought against the new scroll position, so the buttons and dots stopped lining up. I had to rewrite `goToEra()` to scroll the whole window instead of the strip. I also tried a version where one flick of the mouse wheel moved exactly one card, but I removed it because it took over the mouse wheel and I couldn't fully understand how all of it worked.
 
 **The nav bar pushing the cards over.** The nav bar sits inside `#eras` in the HTML, so even when it was hidden it was taking up a space in the card strip. This pushed every card 2rem to the right and cut off the text. I fixed it by making the nav bar `position: fixed`, so it no longer takes up space in the strip.
 
 **The hotspots spreading across the page.** At one point I gave the photo's figure a `min-content` width, which shrank the box around the photo to the width of a single word. Because the hotspots are positioned as percentages of that box, they spread out across the page instead of sitting on the photo. This is part of why I ended up using the `fit-content` and caption width approach described in the CSS section.
-
-**Checking my content against the sources.** When I read the Tokyo Weekender article properly, I found it didn't actually say that Tang clothing shaped the kimono, which my first draft of the Japan section claimed. I rewrote that section to only say what the source supports, and changed some other claims about clothing to more careful wording (like "is usually described as") where I couldn't find a source that stated them directly.
 
 Often the cause of a bug or issue wasn't a line that looked broken, it was typically something around like it where it sat in the HTML or JavaScript.
 
