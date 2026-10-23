@@ -243,7 +243,7 @@ era.hotspots.forEach((spot) => {
   });
 }
 
-// Updates the photo panel (image, caption and credit) to match the era at the given index.
+// Updates the photo panel (image, credit and hotspots) and the page colours to match the era at the given index.
 // Called by onCardVisible() when a card enters view.
 function showEra(index) {
   const era = eras[index];
@@ -271,6 +271,9 @@ document.getElementById("prev-era").addEventListener("click", () => {
 
 function goToEra(index) {
   if (index >= 0 && index < eras.length) {
+    // Update the index straight away, so a quick second click goes on to the next era
+    // instead of using the old index while the observer is still waiting to fire.
+    currentIndex = index;
     const timeline = document.getElementById("timeline");
     const scrollable = timeline.offsetHeight - window.innerHeight;
     const progress = index / (eras.length - 1);
@@ -305,8 +308,6 @@ function isPinned() {
   const timeline = document.getElementById("timeline");
   const rect = timeline.getBoundingClientRect();
   return rect.top <= 0 && rect.bottom >= window.innerHeight;
-rect.top <= 0 && rect.bottom >= window.innerHeight
-
 }
 
 // Left and right arrow keys move between eras, but only while the timeline is on screen.

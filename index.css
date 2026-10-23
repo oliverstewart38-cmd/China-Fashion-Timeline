@@ -267,7 +267,7 @@ h2 {
 #next-era,
 #prev-era {
   background: var(--accent);
-  color: var(--text);
+  color: var(--bg); /* bg colour instead of text colour, for contrast against the accent */
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -423,14 +423,4 @@ font-size: clamp(2.5rem, 5vw, 5rem);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* On phones, stack the heading above the text */
-@media (max-width: 700px) {
-  #japan,
-  #after,
-  #sources {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
 }
